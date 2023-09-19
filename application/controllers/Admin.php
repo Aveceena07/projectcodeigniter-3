@@ -26,16 +26,32 @@ class Admin extends CI_Controller
         $this->load->view('admin/siswa', $data);
     }
 
+    public function guru()
+    {
+        $data['guru'] = $this->m_model->get_data('guru')->result();
+        $this->load->view('admin/guru', $data);
+    }
+
     public function hapus_siswa($id)
     {
         $this->m_model->delete('siswa', 'id_siswa', $id);
         redirect(base_url('admin/siswa'));
     }
+    public function hapus_guru($id)
+    {
+        $this->m_model->delete('guru', 'id_guru', $id);
+        redirect(base_url('admin/guru'));
+    }
 
     public function tambah_siswa()
     {
-        $data['kelas'] = $this->m_model->get_data('kelas')->result();
+        $data['siswa'] = $this->m_model->get_data('siswa')->result();
         $this->load->view('admin/tambah_siswa', $data);
+    }
+    public function tambah_guru()
+    {
+        $data['guru'] = $this->m_model->get_data('guru')->result();
+        $this->load->view('admin/tambah_guru', $data);
     }
 
     public function ubah_siswa($id)
@@ -43,8 +59,14 @@ class Admin extends CI_Controller
         $data['siswa'] = $this->m_model
             ->get_by_id('siswa', 'id_siswa', $id)
             ->result();
-        $data['kelas'] = $this->m_model->get_data('kelas')->result();
         $this->load->view('admin/ubah_siswa', $data);
+    }
+    public function ubah_guru($id)
+    {
+        $data['guru'] = $this->m_model
+            ->get_by_id('guru', 'id_guru', $id)
+            ->result();
+        $this->load->view('admin/ubah_guru', $data);
     }
 
     public function aksi_tambah_siswa()
@@ -52,12 +74,24 @@ class Admin extends CI_Controller
         $data = [
             'nama_siswa' => $this->input->post('nama'),
             'nisn' => $this->input->post('nisn'),
+            'kelas' => $this->input->post('kelas'),
             'gender' => $this->input->post('gender'),
-            'id_kelas' => $this->input->post('kelas'),
         ];
 
         $this->m_model->tambah_data('siswa', $data);
         redirect(base_url('admin/siswa'));
+    }
+    public function aksi_tambah_guru()
+    {
+        $data = [
+            'nama_guru' => $this->input->post('nama'),
+            'alamat' => $this->input->post('alamat'),
+            'gender' => $this->input->post('gender'),
+            'nik' => $this->input->post('nik'),
+        ];
+
+        $this->m_model->tambah_data('guru', $data);
+        redirect(base_url('admin/guru'));
     }
 
     public function aksi_ubah_siswa()
@@ -65,8 +99,8 @@ class Admin extends CI_Controller
         $data = [
             'nama_siswa' => $this->input->post('nama'),
             'nisn' => $this->input->post('nisn'),
+            'kelas' => $this->input->post('kelas'),
             'gender' => $this->input->post('gender'),
-            'id_kelas' => $this->input->post('kelas'),
         ];
         $eksekusi = $this->m_model->ubah_data('siswa', $data, [
             'id_siswa' => $this->input->post('id_siswa'),
@@ -83,11 +117,28 @@ class Admin extends CI_Controller
             );
         }
     }
-
-    public function guru()
+    public function aksi_ubah_guru()
     {
-        $data['guru'] = $this->m_model->get_data('guru')->result();
-        $this->load->view('admin/guru', $data);
+        $data = [
+            'nama_guru' => $this->input->post('nama'),
+            'alamat' => $this->input->post('alamat'),
+            'gender' => $this->input->post('gender'),
+            'nik' => $this->input->post('nik'),
+        ];
+        $eksekusi = $this->m_model->ubah_data('guru', $data, [
+            'id_guru' => $this->input->post('id_guru'),
+        ]);
+        if ($eksekusi) {
+            $this->session->set_flashdata('sukses', 'berhasil');
+            redirect(base_url('admin/guru'));
+        } else {
+            $this->session->set_flashdata('error', 'gagal...');
+            redirect(
+                base_url(
+                    'admin/siswa/ubah_guru/' . $this->input->post('id_guru')
+                )
+            );
+        }
     }
 }
 ?>

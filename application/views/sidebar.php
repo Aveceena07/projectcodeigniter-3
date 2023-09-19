@@ -102,7 +102,6 @@ body{
   padding: 20px;
   background: black;
   color: white;
-  border-bottom: 1px solid #e0e4e8;
 }
 
 .wrapper .main_content .info{
@@ -131,7 +130,9 @@ body{
             <li><a href="<?php echo base_url(); ?>admin/guru"><i class="fa-solid fa-user-tie"></i> Guru</a></li>
         </ul> 
         <div class="social_media">
-          <a href="#"><i class="fa-solid fa-right-from-bracket">Logout</i></a>
+          <a href="<?php echo base_url(
+              'auth/logout'
+          ); ?>"><i class="fa-solid fa-right-from-bracket">Logout</i></a>
       </div>
     </div>
     <div class="main_content">

@@ -16,6 +16,11 @@
     .card-body{
         background-color: #2EB8AD;
     }
+    .jabatan{
+        margin-left:35%;
+        margin-top:100px;
+    }
+    
 </style>
 <?php $this->load->view('sidebar'); ?> <!-- Sertakan sidebar -->
 <body>
@@ -42,6 +47,7 @@
             </div>
         </div>
     </div>
-        </div>
+</div>
+</div>
 </body>
 </html>
