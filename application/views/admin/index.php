@@ -14,12 +14,16 @@
         width:300px;
     }
     .card-body{
-        background-color: #2EB8AD;
+        background-color: #2A403F;
     }
-    .jabatan{
-        margin-left:35%;
-        margin-top:100px;
-    }
+.ikon {
+    display: flex;
+    align-items: center; 
+}
+
+.ikon i {
+    margin-left: 170px;
+}
     
 </style>
 <?php $this->load->view('sidebar'); ?> <!-- Sertakan sidebar -->
@@ -29,20 +33,26 @@
 <div class="row">
         <!-- Kartu Pertama -->
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-body text-light">
-                    <h3 class="card-title">Jumlah Siswa</h3>
-                    <h1><?php echo $siswa; ?></h1>
-                </div>
-            </div>
+    <div class="card">
+        <div class="card-body text-light">
+            <h3 class="card-title">Jumlah Siswa</h3>
+            <h1 class="ikon">
+                <?php echo $siswa; ?>
+                <i class="fas fa-user fa-2xl"></i>
+            </h1>
         </div>
+    </div>
+</div>
 
         <!-- Kartu Kedua -->
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body text-light">
                     <h3 class="card-title">Jumlah Guru</h3>
-                    <h1><?php echo $guru; ?></h1>
+                    <h1 class="ikon">
+                <?php echo $guru; ?>
+                <i class="fa-solid fa-user-tie fa-2xl"></i>
+            </h1>
                 </div>
             </div>
         </div>

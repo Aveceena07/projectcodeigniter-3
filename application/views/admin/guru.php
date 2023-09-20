@@ -35,8 +35,8 @@
       <th scope="col">ID</th>
       <th scope="col">Nama Guru</th>
       <th scope="col">NIK</th>
-      <th scope="col">Alamat</th>
       <th scope="col">Gender</th>
+      <th scope="col">Mapel</th>
       <th class="text-center">Aksi</th>
     </tr>
   </thead>
@@ -49,8 +49,8 @@
       <td><?php echo $no; ?></td>
       <td><?php echo $row->nama_guru; ?></td>
       <td><?php echo $row->nik; ?></td>
-      <td><?php echo $row->alamat; ?></td>
       <td><?php echo $row->gender; ?></td>
+      <td><?php echo tampil_full_mapel_byid($row->id_mapel); ?></td>
       <td class="text-center">
         <button  onclick="hapus(<?php echo $row->id_guru; ?>)" type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
         <a href="<?php echo base_url('admin/ubah_guru/') .

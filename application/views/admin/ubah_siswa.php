@@ -25,12 +25,18 @@
             <div class="mb-3 col-6">
                 <label for="kelas" class="form-label">Kelas</label>
                 <select name="kelas" class="form-select">
-                    <option selected value="<?php echo $data_siswa->kelas; ?>">
-                        <?php echo $data_siswa->kelas; ?>
+                    <option selected value="<?php $data_siswa->id_kelas; ?>">
+                        <?php echo tampil_full_kelas_byid(
+                            $data_siswa->id_kelas
+                        ); ?>
                     </option>
-                    <option value="X">X</option>
-                    <option value="XI">XI</option>
-                    <option value="XII">XII</option>
+                    <?php foreach ($kelas as $row): ?>
+                    <option value="<?php echo $row->id; ?>">
+                        <?php echo $row->tingkat_kelas .
+                            ' ' .
+                            $row->jurusan_kelas; ?>
+                    </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <div class="mb-3 col-6">

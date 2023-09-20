@@ -45,12 +45,13 @@ class Admin extends CI_Controller
 
     public function tambah_siswa()
     {
-        $data['siswa'] = $this->m_model->get_data('siswa')->result();
+        $data['kelas'] = $this->m_model->get_data('kelas')->result();
         $this->load->view('admin/tambah_siswa', $data);
     }
     public function tambah_guru()
     {
         $data['guru'] = $this->m_model->get_data('guru')->result();
+        $data['mapel'] = $this->m_model->get_data('mapel')->result();
         $this->load->view('admin/tambah_guru', $data);
     }
 
@@ -59,6 +60,7 @@ class Admin extends CI_Controller
         $data['siswa'] = $this->m_model
             ->get_by_id('siswa', 'id_siswa', $id)
             ->result();
+        $data['kelas'] = $this->m_model->get_data('kelas')->result();
         $this->load->view('admin/ubah_siswa', $data);
     }
     public function ubah_guru($id)
@@ -66,6 +68,7 @@ class Admin extends CI_Controller
         $data['guru'] = $this->m_model
             ->get_by_id('guru', 'id_guru', $id)
             ->result();
+        $data['mapel'] = $this->m_model->get_data('mapel')->result();
         $this->load->view('admin/ubah_guru', $data);
     }
 
@@ -74,7 +77,7 @@ class Admin extends CI_Controller
         $data = [
             'nama_siswa' => $this->input->post('nama'),
             'nisn' => $this->input->post('nisn'),
-            'kelas' => $this->input->post('kelas'),
+            'id_kelas' => $this->input->post('kelas'),
             'gender' => $this->input->post('gender'),
         ];
 
@@ -85,9 +88,9 @@ class Admin extends CI_Controller
     {
         $data = [
             'nama_guru' => $this->input->post('nama'),
-            'alamat' => $this->input->post('alamat'),
-            'gender' => $this->input->post('gender'),
             'nik' => $this->input->post('nik'),
+            'gender' => $this->input->post('gender'),
+            'id_mapel' => $this->input->post('mapel'),
         ];
 
         $this->m_model->tambah_data('guru', $data);
@@ -99,7 +102,7 @@ class Admin extends CI_Controller
         $data = [
             'nama_siswa' => $this->input->post('nama'),
             'nisn' => $this->input->post('nisn'),
-            'kelas' => $this->input->post('kelas'),
+            'id_kelas' => $this->input->post('kelas'),
             'gender' => $this->input->post('gender'),
         ];
         $eksekusi = $this->m_model->ubah_data('siswa', $data, [
@@ -121,9 +124,9 @@ class Admin extends CI_Controller
     {
         $data = [
             'nama_guru' => $this->input->post('nama'),
-            'alamat' => $this->input->post('alamat'),
-            'gender' => $this->input->post('gender'),
             'nik' => $this->input->post('nik'),
+            'gender' => $this->input->post('gender'),
+            'id_mapel' => $this->input->post('mapel'),
         ];
         $eksekusi = $this->m_model->ubah_data('guru', $data, [
             'id_guru' => $this->input->post('id_guru'),

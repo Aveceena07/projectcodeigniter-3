@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,16 +30,15 @@ body{
 .wrapper .sidebar{
   width: 200px;
   height: 100%;
-  background: black;
+  background: #384544;
   padding: 30px 0px;
   position: fixed;
 }
 
-.wrapper .sidebar h2{
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
+.wrapper .sidebar img{
+  width: 100px;
+  margin-bottom:20px;
+  margin-left:50px;
 }
 
 .wrapper .sidebar ul li{
@@ -51,6 +51,7 @@ body{
 .wrapper .sidebar ul li a{
     text-decoration: none;
   color: white;
+  font-size:20px;
   display: block;
 }
 
@@ -59,7 +60,7 @@ body{
 }
 
 .wrapper .sidebar ul li:hover{
-  background-color: #2EB8AD;
+  background-color: #495655;
 }
     
 .wrapper .sidebar ul li:hover a{
@@ -100,8 +101,9 @@ body{
 
 .wrapper .main_content .header{
   padding: 20px;
-  background: black;
+  background: #384544;
   color: white;
+  font-size: 30px;
 }
 
 .wrapper .main_content .info{
@@ -110,8 +112,20 @@ body{
   line-height: 25px;
 }
 
+.wrapper .main_content .header p{
+  text-align: center;
+  color: white;
+  font-family: 'Poppins';
+  margin-top:10px;
+}
+
 .wrapper .main_content .info div{
   margin-bottom: 20px;
+}
+
+.wrapper .main_content .logout{
+  float: right;
+  margin-top: -60px;
 }
 
 @media (max-height: 500px){
@@ -123,22 +137,22 @@ body{
 
 <div class="wrapper">
     <div class="sidebar">
-        <h2>Sidebar</h2>
+        <img src="https://binusasmg.sch.id/ppdb/logobinusa.png" alt="">
         <ul>
             <li><a href="<?php echo base_url(); ?>admin"><i class="fas fa-home"></i>Dashboard</a></li>
-            <li><a href="<?php echo base_url(); ?>admin/siswa"><i class="fa-solid fa-graduation-cap"></i> Siswa</a></li>
-            <li><a href="<?php echo base_url(); ?>admin/guru"><i class="fa-solid fa-user-tie"></i> Guru</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/siswa"><i class="fas fa-user"></i>Siswa</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/guru"><i class="fa-solid fa-person-chalkboard"></i> Guru</a></li>
         </ul> 
-        <div class="social_media">
-          <a href="<?php echo base_url(
-              'auth/logout'
-          ); ?>"><i class="fa-solid fa-right-from-bracket">Logout</i></a>
-      </div>
     </div>
     <div class="main_content">
-        <div class="header">Welcome <?php echo $this->session->userdata(
+        <div class="header"><p>Welcome <?php echo $this->session->userdata(
             'username'
-        ); ?> !!!</div>  
+        ); ?>
+        </p>
+      <a class="logout" href="<?php echo base_url(
+          'auth/logout'
+      ); ?>"><i class="fa-solid fa-right-from-bracket fa-lg text-danger text-center"></i></a>
+        </div>  
         <div class="info">
       </div>
     </div>

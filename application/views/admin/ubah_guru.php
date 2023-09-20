@@ -23,10 +23,6 @@
                 <input type="text" class="form-control" id="nisn" name="nik" value="<?php echo $data_guru->nik; ?>">
             </div>
             <div class="mb-3 col-6">
-                <label for="nisn" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="nisn" name="alamat" value="<?php echo $data_guru->alamat; ?>">
-            </div>
-            <div class="mb-3 col-6">
                 <label for="gender" class="form-label">Gender</label>
                 <select name="gender" class="form-select">
                     <option selected value="<?php echo $data_guru->gender; ?>">
@@ -34,6 +30,21 @@
                     </option>
                     <option value="Laki-Laki">Laki-Laki</option>
                     <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="mb-3 col-6">
+                <label for="mapel" class="form-label">Mapel</label>
+                <select name="mapel" class="form-select">
+                    <option selected value="<?php $data_guru->id_mapel; ?>">
+                        <?php echo tampil_full_mapel_byid(
+                            $data_guru->id_mapel
+                        ); ?>
+                    </option>
+                    <?php foreach ($mapel as $row): ?>
+                        <option value="<?php echo $row->id; ?>">
+                            <?php echo $row->nama_mapel; ?>
+                        </option>
+                        <?php endforeach; ?>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Submit</button>

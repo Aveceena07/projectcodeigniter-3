@@ -28,16 +28,16 @@
     <div class="add">
           <a href="<?php echo base_url(
               'admin/tambah_siswa'
-          ); ?>" type="button" class="btn btn-success mt-1"><i class="fa-solid fa-user-plus"></i></a>
+          ); ?>" type="button" class="btn btn-primary mt-1"><i class="fa-solid fa-user-plus"></i></a>
     </div>
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nama Siswa</th>
-      <th scope="col">NISN</th>
-      <th scope="col">Kelas</th>
-      <th scope="col">Gender</th>
-      <th class="text-center">Aksi</th>
+    <th scope="col">No</th>
+    <th scope="col">Nama Siswa</th>
+    <th scope="col">NISN</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Kelas</th>
+    <th class="text-center">Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -49,8 +49,8 @@
       <td><?php echo $no; ?></td>
       <td><?php echo $row->nama_siswa; ?></td>
       <td><?php echo $row->nisn; ?></td>
-      <td><?php echo $row->kelas; ?></td>
       <td><?php echo $row->gender; ?></td>
+      <td><?php echo tampil_full_kelas_byid($row->id_kelas); ?></td>
       <td class="text-center">
         <button  onclick="hapus(<?php echo $row->id_siswa; ?>)" type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
         <a href="<?php echo base_url('admin/ubah_siswa/') .
