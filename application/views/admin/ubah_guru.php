@@ -8,7 +8,7 @@
 </head>
 <body class="min-vh-100 d-flex align-items-center">
     <div class='card w-50 m-auto p-3'>
-        <h3 class="text-center">Ubah</h3>
+        <h3 class="text-center">Ubah Siswa</h3>
         <?php foreach ($guru as $data_guru): ?>
         <form action="<?php echo base_url(
             'admin/aksi_ubah_guru'
@@ -47,7 +47,7 @@
                         <?php endforeach; ?>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <button type="submit" class="btn btn-primary" name="submit">Ubah</button>
         </form>
         <?php endforeach; ?>
     </div>

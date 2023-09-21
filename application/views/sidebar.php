@@ -116,8 +116,8 @@ body{
   text-align: center;
   color: white;
   font-family: 'Poppins';
-  margin-top:10px;
-}
+  margin-top:5px;
+} 
 
 .wrapper .main_content .info div{
   margin-bottom: 20px;
@@ -156,6 +156,6 @@ body{
         <div class="info">
       </div>
     </div>
-</div>
+  </div>
 </body>
 </html>

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body class="random-background min-vh-100 d-flex align-items-center">
@@ -28,7 +30,7 @@
                     <?php foreach ($kelas as $row): ?>
                         <option value="<?php echo $row->id; ?>">
                             <?php echo $row->tingkat_kelas .
-                                '' .
+                                ' ' .
                                 $row->jurusan_kelas; ?>
                         </option>
                     <?php endforeach; ?>
@@ -42,8 +44,17 @@
                     <option value="Perempuan">Perempuan</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <button type="submit" class="success btn btn-primary" name="submit">Submit</button>
         </form>
     </div>
+    <?php if ($this->session->flashdata('success')): ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: '<?php echo $this->session->flashdata('success'); ?>',
+            });
+        </script>
+    <?php endif; ?>
 </body>
 </html>

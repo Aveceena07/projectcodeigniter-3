@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -112,6 +113,15 @@
               </form>
             </div>
           </div>
+          <script>
+    <?php if ($this->session->flashdata('error')): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '<?php echo $this->session->flashdata('error'); ?>'
+        });
+    <?php endif; ?>
+</script>
         </body>
         </html>
               

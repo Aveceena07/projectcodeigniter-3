@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -32,7 +33,7 @@
     </div>
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">No</th>
       <th scope="col">Nama Guru</th>
       <th scope="col">NIK</th>
       <th scope="col">Gender</th>
@@ -63,14 +64,25 @@
   </tbody>
 </table>
 <script>
-        function hapus(id) {
-        var yes = confirm('Yakin Dex?');
-        if (yes == true) {
-        window.location.href = "<?php echo base_url(
-            'admin/hapus_guru/'
-        ); ?>" + id;
-    }
-  }
-        </script>
+function hapus(id) {
+    Swal.fire({
+        title: 'Konfirmasi Hapus',
+        text: 'Anda yakin ingin menghapus data guru ini?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Jika pengguna mengklik "Ya, Hapus!", arahkan ke fungsi hapus di controller
+            window.location.href = "<?php echo base_url(
+                'admin/hapus_guru/'
+            ); ?>" + id;
+        }
+    });
+}
+</script>
 </body>
 </html>

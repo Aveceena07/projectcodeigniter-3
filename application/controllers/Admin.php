@@ -82,6 +82,7 @@ class Admin extends CI_Controller
         ];
 
         $this->m_model->tambah_data('siswa', $data);
+
         redirect(base_url('admin/siswa'));
     }
     public function aksi_tambah_guru()
