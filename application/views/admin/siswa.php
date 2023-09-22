@@ -53,6 +53,8 @@
       <td><?php echo $row->gender; ?></td>
       <td><?php echo tampil_full_kelas_byid($row->id_kelas); ?></td>
       <td class="text-center">
+        <a href="<?php echo base_url('admin/detail_siswa/') .
+            $row->id_siswa; ?>" type="button" class="btn btn-warning"><i class="fa-solid fa-circle-info"></i></a>
         <button  onclick="hapus(<?php echo $row->id_siswa; ?>)" type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
         <a href="<?php echo base_url('admin/ubah_siswa/') .
             $row->id_siswa; ?>" type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>

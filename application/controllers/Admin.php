@@ -56,6 +56,13 @@ class Admin extends CI_Controller
         $this->load->view('admin/tambah_guru', $data);
     }
 
+    public function detail_siswa($id_siswa)
+    {
+        $data['siswa'] = $this->m_model->get_siswa_by_id($id_siswa); // Mengambil data siswa dari model
+
+        $this->load->view('admin/detail_siswa', $data); // Memuat view
+    }
+
     public function ubah_siswa($id)
     {
         $data['siswa'] = $this->m_model
