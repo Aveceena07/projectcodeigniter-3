@@ -57,7 +57,7 @@
             $row->id_siswa; ?>" type="button" class="btn btn-warning"><i class="fa-solid fa-circle-info"></i></a>
         <button  onclick="hapus(<?php echo $row->id_siswa; ?>)" type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
         <a href="<?php echo base_url('admin/ubah_siswa/') .
-            $row->id_siswa; ?>" type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+            $row->id_siswa; ?>" type="button" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
       </td>
      </tr>
     <?php

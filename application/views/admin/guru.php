@@ -53,9 +53,11 @@
       <td><?php echo $row->gender; ?></td>
       <td><?php echo tampil_full_mapel_byid($row->id_mapel); ?></td>
       <td class="text-center">
+      <a href="<?php echo base_url('admin/detail_guru/') .
+          $row->id_guru; ?>" type="button" class="btn btn-warning"><i class="fa-solid fa-circle-info"></i></a>
         <button  onclick="hapus(<?php echo $row->id_guru; ?>)" type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
         <a href="<?php echo base_url('admin/ubah_guru/') .
-            $row->id_guru; ?>" type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+            $row->id_guru; ?>" type="button" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
       </td>
      </tr>
     <?php
