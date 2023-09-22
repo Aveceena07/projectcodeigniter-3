@@ -44,7 +44,7 @@
                     <option value="Perempuan">Perempuan</option>
                 </select>
             </div>
-            <button type="submit" class="success btn btn-primary" name="submit">Submit</button>
+            <button type="submit" class="success btn btn-success" name="submit">Tambah</button>
         </form>
     </div>
     <?php if ($this->session->flashdata('success')): ?>

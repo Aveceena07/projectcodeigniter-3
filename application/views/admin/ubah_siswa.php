@@ -49,7 +49,7 @@
                     <option value="Perempuan">Perempuan</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">Ubah</button>
+            <button type="submit" class="btn btn-warning" name="submit">Ubah</button>
         </form>
         <?php endforeach; ?>
     </div>

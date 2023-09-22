@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>*{
@@ -42,7 +43,7 @@ body{
 }
 
 .wrapper .sidebar ul li{
-  padding: 15px;
+  padding: 5px;
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -51,7 +52,7 @@ body{
 .wrapper .sidebar ul li a{
     text-decoration: none;
   color: white;
-  font-size:20px;
+  font-size:18px;
   display: block;
 }
 
@@ -100,7 +101,8 @@ body{
 }
 
 .wrapper .main_content .header{
-  padding: 20px;
+  padding: 2px;
+  width:auto;
   background: #384544;
   color: white;
   font-size: 30px;
@@ -125,8 +127,11 @@ body{
 
 .wrapper .main_content .logout{
   float: right;
+  margin-right: 20px;
   margin-top: -60px;
 }
+
+
 
 @media (max-height: 500px){
   .social_media{
@@ -149,13 +154,35 @@ body{
             'username'
         ); ?>
         </p>
-      <a class="logout" href="<?php echo base_url(
-          'auth/logout'
-      ); ?>"><i class="fa-solid fa-right-from-bracket fa-lg text-danger text-center"></i></a>
+        <a class="logout" href="javascript:void(0);" onclick="confirmLogout()">
+    <i class="fa-solid fa-right-from-bracket text-danger text-center"></i>
+</a>
+
         </div>  
         <div class="info">
       </div>
     </div>
   </div>
+  <script>
+    // Fungsi untuk menampilkan SweetAlert saat ingin logout
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Konfirmasi Logout',
+            text: 'Anda yakin ingin logout?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#2EB8AD',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Logout',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect atau lakukan logout di sini
+                window.location.href = "<?php echo base_url('auth/logout'); ?>";
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
